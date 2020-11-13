@@ -34,8 +34,8 @@ do
 done
 sleep 5
 tar -xzf biobert_large_v1.1_pubmed.tar.gz && mv biobert_large "$DIR/data/biobert_large" && rm biobert_large_v1.1_pubmed.tar.gz
-mv "$DIR/biobert_large/*vocab*.txt" "$DIR/biobert_large/vocab.txt"
-mv "$DIR/biobert_large/*config*.json" "$DIR/biobert_large/config.json"
-mv "$DIR/biobert_large/*ckpt.meta" "$DIR/biobert_large/model.ckpt.meta"
-mv "$DIR/biobert_large/*ckpt.index" "$DIR/biobert_large/model.ckpt.index"
-mv "$DIR/biobert_large/bio_bert_large_1000k.ckpt.data-00000-of-00001" "$DIR/biobert_large/model.ckpt.data-00000-of-00001"
+mv "$DIR/data/biobert_large/*vocab*.txt" "$DIR/data/biobert_large/vocab.txt"
+mv "$DIR/data/biobert_large/*config*.json" "$DIR/data/biobert_large/config.json"
+mv "$DIR/data/biobert_large/*ckpt.meta" "$DIR/data/biobert_large/model.ckpt.meta"
+mv "$DIR/data/biobert_large/*ckpt.index" "$DIR/data/biobert_large/model.ckpt.index"
+mv "$DIR/data/biobert_large/bio_bert_large_1000k.ckpt.data-00000-of-00001" "$DIR/data/biobert_large/model.ckpt.data-00000-of-00001"
