@@ -22,7 +22,7 @@ do
     sleep 1
 done
 sleep 5
-tar -xzf bio_nlp_vec.tar.gz && mv bio_nlp_vec "$DIR/data/bio_nlp_vec" && rm bio_nlp_vec.tar.gz
+tar -xzf bio_nlp_vec.tar.gz && mv bio_nlp_vec "$DIR/data/biobert_large" && rm bio_nlp_vec.tar.gz
 curl https://raw.githubusercontent.com/spyysalo/wvlib/master/wvlib.py --output "$DIR/wvlib.py"
 
 echo "downlading bioBERT..."
@@ -33,7 +33,7 @@ do
     sleep 1
 done
 sleep 5
-tar -xzf biobert_large_v1.1_pubmed.tar.gz && mv biobert_large "$DIR/biobert_large" && rm biobert_large_v1.1_pubmed.tar.gz
+tar -xzf biobert_large_v1.1_pubmed.tar.gz && mv biobert_large "$DIR/data/biobert_large" && rm biobert_large_v1.1_pubmed.tar.gz
 mv "$DIR/biobert_large/*vocab*.txt" "$DIR/biobert_large/vocab.txt"
 mv "$DIR/biobert_large/*config*.json" "$DIR/biobert_large/config.json"
 mv "$DIR/biobert_large/*ckpt.meta" "$DIR/biobert_large/model.ckpt.meta"
