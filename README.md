@@ -51,23 +51,19 @@ file to see how data is modelled in terms of classes and attributes.
   "common_examples": [
     {
       "text": "Book a flight from Berlin to SF",
-      "intent": "book_flight",
+      "intent": "",
       "entities": [
         {
           "start": 19,
           "end": 25,
           "value": "Berlin",
-          "entity": "city",
-          "role": "departure",
-          "extractor": "DIETClassifier",
+          "entity": "city"
         },
         {
           "start": 29,
           "end": 31,
           "value": "San Francisco",
-          "entity": "city",
-          "role": "destination",
-          "extractor": "DIETClassifier",
+          "entity": "city"
         }
       ]
     }
