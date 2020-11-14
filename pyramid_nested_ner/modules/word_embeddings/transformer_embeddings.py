@@ -22,6 +22,7 @@ class TransformerWordEmbeddings(object):
             pooling_operation='mean',
             dropout=2e-1,
             device='cpu',
+            casing=True,
     ):
         try:
             self.embeddings = flair.embeddings.TransformerWordEmbeddings(
@@ -52,6 +53,7 @@ class TransformerWordEmbeddings(object):
         self._train = True
         self._cache = dict()
         self.device = device
+        self.casing = casing
         self.embeddings = self.embeddings.to(device)
 
     def to(self, device, **kwargs):
@@ -70,7 +72,7 @@ class TransformerWordEmbeddings(object):
 
     @property
     def vocab_idx(self):
-        return {i: token for i, token in enumerate(self.lexicon)}
+        return {i: token.lower() if not self.casing else token for i, token in enumerate(self.lexicon)}
 
     @property
     def embedding_dim(self):

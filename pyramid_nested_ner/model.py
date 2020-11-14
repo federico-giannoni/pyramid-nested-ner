@@ -35,6 +35,7 @@ class PyramidNer(object):
         word_embeddings,
         entities_lexicon,
         language_model=None,
+        language_model_casing=True,
         char_embeddings_dim=60,
         encoder_hidden_size=100,
         encoder_output_size=200,
@@ -86,6 +87,7 @@ class PyramidNer(object):
                 word_lexicon,
                 padding_idx=0,
                 device=device,
+                casing=language_model_casing
             )
 
         self.nnet = self._init_nnet()

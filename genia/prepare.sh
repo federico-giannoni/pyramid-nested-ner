@@ -26,9 +26,9 @@ python "$DIR/utils/download.py"
 #    sleep 1
 # done
 # sleep 3
-[[ ! -f "bio_nlp_vec.tar.gz" ]] || echo "bio_nlp_vec.tar.gz was not downloaded." && exit 1
-[[ ! -f "biobert_large_v1.1_pubmed.tar.gz" ]] || echo "biobert_large_v1.1_pubmed.tar.gz was not downloaded." && exit 1
-
+[[ -f "bio_nlp_vec.tar.gz" ]] || echo "bio_nlp_vec.tar.gz was not downloaded." && exit 1
+[[ -f "biobert_large_v1.1_pubmed.tar.gz" ]] || echo "biobert_large_v1.1_pubmed.tar.gz was not downloaded." && exit 1
+echo "extracting bio_nlp_vec and biobert_large..."
 tar -xzf bio_nlp_vec.tar.gz && mv bio_nlp_vec "$DIR/data/" && rm bio_nlp_vec.tar.gz
 tar -xzf biobert_large_v1.1_pubmed.tar.gz && mv biobert_large "$DIR/data/" && rm biobert_large_v1.1_pubmed.tar.gz
 # curl https://raw.githubusercontent.com/spyysalo/wvlib/master/wvlib.py --output "$DIR/wvlib.py"

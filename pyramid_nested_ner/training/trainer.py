@@ -117,7 +117,7 @@ class PyramidNerTrainer(object):
             else:
                 train_report.add_epoch(train_loss, None)
 
-        if restore_weights_on and best_weights[restore_weights_on] is not None:
+        if restore_weights_on and best_weights.get(restore_weights_on) is not None:
             print('Training is done (restoring model\'s best weights)')
             self.nnet.load_state_dict(best_weights[restore_weights_on])
 
