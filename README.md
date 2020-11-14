@@ -38,8 +38,8 @@ With respect to the original implementation I have added a couple of extra featu
 
 ## Train on your data
 
-You can test the model on your own data easily through the `customize/train.pynb` notebook. You can load the
-Notebook on Google Colab and upload your data on Drive to train and evaluate easily. The notebook should also
+You can test the model on your own data easily through the `test/Pyramid Nested NER - Custom Training.ipynb` notebook. You can load the
+Notebook on Google Colab and upload your data there (or on Drive) to train and evaluate easily. The notebook should also
 give you an idea on how to export the model for inference. **It is recommended to use GPUs for training**.
 
 For now, the only data format supported out-of-the-box is the older json format of rasa (shown below). You will
