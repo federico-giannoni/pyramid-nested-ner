@@ -30,7 +30,7 @@ and evaluating the model.
 With respect to the original implementation I have added a couple of extra features, namely:
 
 1. Support for [Flair](https://www.github.com/zalandoresearch/flair) static word embeddings out-of-the-box;
-2. Support for end-to-end parsing (`model.parse_text`), as well as model saving and loading;
+2. Support for end-to-end parsing (`model.parse(sentences)`), as well as model saving and loading;
 3. Extending the *remedy solution* of the paper in a multi-label setting, so that even with
    a small number of layers, the Pyramid model is still able to identify nested mentions longer than
    the pyramid's depth;
