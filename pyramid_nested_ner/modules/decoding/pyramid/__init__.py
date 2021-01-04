@@ -14,15 +14,15 @@ class PyramidDecoder(nn.Module):
     tributed, this would yield suboptimal training for some of the convolutional modules.
     """
 
-    def __init__(self, input_size, hidden_size, max_depth=None, dropout=0.4, batch_first=False):
+    def __init__(self, input_size, hidden_size, max_depth=None, dropout=0.4):
         super(PyramidDecoder, self).__init__()
-        self.rnn = nn.LSTM(input_size, hidden_size, bidirectional=True, batch_first=batch_first)
+        self.rnn = nn.LSTM(input_size, hidden_size, bidirectional=True, batch_first=True)
         channels = hidden_size * 2
-        self.cnn = nn.Conv1d(in_channels=channels, out_channels=channels, kernel_size=2)
+        self.cnn = nn.Conv1d(in_channels=channels, out_channels=channels,  kernel_size=2)
         self.dropout = nn.Dropout(dropout or 0.)
         self.layer_norm = nn.LayerNorm(channels)
         self._max_depth = max_depth
-        self._is_bf = batch_first
+        self._is_bf = True
         self.hidden = None
 
     @property

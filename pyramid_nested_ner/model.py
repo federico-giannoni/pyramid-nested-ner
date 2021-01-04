@@ -41,7 +41,6 @@ class PyramidNer(object):
         encoder_output_size=200,
         decoder_hidden_size=100,
         pyramid_max_depth=None,
-        batch_first=True,
         inverse_pyramid=False,
         custom_tokenizer=None,
         decoder_dropout=0.4,
@@ -65,7 +64,7 @@ class PyramidNer(object):
             'encoder_output_size': encoder_output_size,
             'decoder_hidden_size': decoder_hidden_size,
             'pyramid_max_depth': pyramid_max_depth,
-            'batch_first': batch_first,
+            'batch_first': True,
             'inverse_pyramid': inverse_pyramid,
             'decoder_dropout': decoder_dropout,
             'encoder_dropout': encoder_dropout,
@@ -163,8 +162,7 @@ class PyramidNer(object):
             self.char_vectorizer.X,
             rnn=nn.LSTM,
             bidirectional=True,
-            embedding_dim=int(char_embeddings_dim / 2),
-            batch_first=self._model_args['batch_first'],
+            embedding_dim=int(char_embeddings_dim / 2)
         )
 
     def _init_nnet(self):
@@ -175,7 +173,6 @@ class PyramidNer(object):
             output_size=self._model_args['encoder_output_size'],
             rnn_class=nn.LSTM,
             language_model=self._model_args['language_model'],
-            batch_first=self._model_args['batch_first'],
             dropout=self._model_args['encoder_dropout'],
         )
 
@@ -186,7 +183,6 @@ class PyramidNer(object):
         pyramid_decoder = pyramid_cls(
             input_size=self._model_args['encoder_output_size'],
             hidden_size=self._model_args['decoder_hidden_size'],
-            batch_first=self._model_args['batch_first'],
             dropout=self._model_args['decoder_dropout'],
             max_depth=self._model_args['pyramid_max_depth']
         )

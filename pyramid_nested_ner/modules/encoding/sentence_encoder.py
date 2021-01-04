@@ -17,7 +17,6 @@ class SentenceEncoder(nn.Module):
         output_size=200,
         dropout=0.4,
         rnn_class=nn.LSTM,
-        batch_first=False,
         language_model=None  # type: TransformerWordEmbeddings
     ):
         input_size = word_embeddings.embedding_dim
@@ -31,7 +30,7 @@ class SentenceEncoder(nn.Module):
           rnn_class,
           input_size=input_size,
           hidden_size=hidden_size,
-          batch_first=batch_first,
+          batch_first=True,
           bidirectional=True
         )
 

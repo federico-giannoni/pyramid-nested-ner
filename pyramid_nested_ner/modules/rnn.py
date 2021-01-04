@@ -60,8 +60,12 @@ class FastRNN(nn.Module):
         lengths = torch.sum(mask, dim=1)
         if not torch.max(lengths).item():
             raise RuntimeError("FastRNN got an empty sample.")
-        batch_size = x.size(0)
-        seq_length = x.size(1)
+        if self.bf:
+            batch_size = x.size(0)
+            seq_length = x.size(1)
+        else:
+            batch_size = x.size(1)
+            seq_length = x.size(0)
         self._init_hidden(batch_size, x.device)
         x, sorted_lengths, original_index = self._batchsort(x,  lengths)
         x = pack_padded_sequence(x, sorted_lengths, batch_first=self.bf)

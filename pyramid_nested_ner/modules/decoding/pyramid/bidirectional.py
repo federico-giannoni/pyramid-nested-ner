@@ -7,8 +7,8 @@ from pyramid_nested_ner.modules.decoding.pyramid import PyramidDecoder
 
 class BidirectionalPyramidDecoder(PyramidDecoder):
 
-    def __init__(self, input_size, hidden_size, max_depth=None, dropout=0.4, batch_first=False):
-        super(BidirectionalPyramidDecoder, self).__init__(input_size, hidden_size, max_depth, dropout, batch_first)
+    def __init__(self, input_size, hidden_size, max_depth=None, dropout=0.4):
+        super(BidirectionalPyramidDecoder, self).__init__(input_size, hidden_size, max_depth, dropout)
         self.inverse_cnn = nn.Conv1d(
             in_channels=self.cnn.in_channels * 2,
             out_channels=self.cnn.in_channels,

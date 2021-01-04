@@ -8,6 +8,10 @@ class CharEmbedding(nn.Module):
 
     def __init__(self, lexicon, rnn=nn.GRU, embedding_dim=60, **kwargs):
         super(CharEmbedding, self).__init__()
+        if 'batch_first' in kwargs:
+            # force batch_first=True;
+            del kwargs['batch_first']
+
         self.embedding = nn.Embedding(
             num_embeddings=len(lexicon),
             embedding_dim=embedding_dim,
@@ -17,6 +21,7 @@ class CharEmbedding(nn.Module):
             rnn,
             input_size=embedding_dim,
             hidden_size=embedding_dim,
+            batch_first=True,
             **kwargs
         )
 
