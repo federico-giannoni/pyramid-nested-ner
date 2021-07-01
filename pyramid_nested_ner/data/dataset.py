@@ -65,7 +65,7 @@ class PyramidNerDataset(Dataset):
         self.tokenizer = custom_tokenizer or default_tokenizer
 
         if not token_lexicon:
-            token_lexicon = {token for x in self.data for token in self.tokenizer(x)}
+            token_lexicon = {token for x in self.data for token in self.tokenizer(x.text)}
 
         self.word_vectorizer = WordVectorizer()
         self.word_vectorizer.set_tokenizer(self.tokenizer)
